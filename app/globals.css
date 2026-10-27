@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Public+Sans:wght@400;600&display=swap');
+
+:root {
+  --ink: #1d2433;
+  --paper: #fbfaf6;
+  --stone: #6a7181;
+  --line: #e2dfd6;
+  --pin: #2d6a68;
+  --pin-active: #b5832a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.shell { display: grid; grid-template-columns: 340px 1fr; height: 100vh; }
+.panel { overflow-y: auto; padding: 28px 24px; border-right: 1px solid var(--line); }
+.panel h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.6rem; margin: 0 0 6px; }
+.panel .intro { color: var(--stone); font-size: 0.92rem; line-height: 1.5; margin: 0 0 24px; }
+
+.asset { display: block; width: 100%; text-align: left; background: none; border: none;
+  border-top: 1px solid var(--line); padding: 14px 0; cursor: pointer; font: inherit; color: inherit; }
+.asset:focus-visible { outline: 2px solid var(--pin); outline-offset: 2px; }
+.asset .name { font-weight: 600; }
+.asset.active .name { color: var(--pin-active); }
+.asset .meta { color: var(--stone); font-size: 0.85rem; margin-top: 2px; }
+
+.token { margin-top: 10px; font-size: 0.82rem; line-height: 1.6; }
+.token dt { color: var(--stone); }
+.token dd { margin: 0 0 4px; word-break: break-all; }
+.badge { display: inline-block; font-size: 0.75rem; padding: 1px 8px; border-radius: 10px;
+  background: #efe7d6; color: #7a5a1c; margin-left: 6px; }
+
+.message { color: var(--stone); font-size: 0.9rem; }
+.map { height: 100%; }
+
+@media (max-width: 760px) {
+  .shell { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
+  .map { height: 55vh; order: -1; }
+  .panel { border-right: none; }
+}
